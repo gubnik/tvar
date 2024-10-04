@@ -4,7 +4,6 @@
 #include "macros.h"
 #include "types.h"
 
-
 CXX_BEGIN
 
 TVAR comb_t factorial (comb_t N);

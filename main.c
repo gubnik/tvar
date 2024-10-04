@@ -1,6 +1,6 @@
-#include "include/combinations.h"
-#include "include/vec.h"
 #include <stdio.h>
+#include <tvar/combinations.h>
+#include <tvar/vec.h>
 
 int main(int argc, char *argv[])
 {
