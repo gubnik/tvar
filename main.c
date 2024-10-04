@@ -4,6 +4,7 @@
 
 int main(int argc, char *argv[])
 {
+  printf("COMB_POW : %llu\n", comb_pow(3, 3));
   printf("(29 5) : %llu\n", combinations(29, 5));
   printf("Bindistr {29, 5, 0.3} : %Lf\n", binominal_distribution(29, 5, 0.3));
   datavector * V = make_vec(10);

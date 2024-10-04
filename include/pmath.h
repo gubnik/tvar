@@ -7,35 +7,58 @@ CXX_BEGIN
 
 TVAR_HEADER prob_t prob_pow(prob_t A, comb_t B)
 {
+  if (B == 0) return 1;
   prob_t res = 1;
-  for (comb_t i = 1; i < B + 1; i++)
+  while (B > 1)
   {
-    res *= A;
+    if (B % 2 == 0)
+    {
+      A *= A;
+      B /= 2;
+    }
+    else 
+    {
+      res *= A;
+      B--;
+    }
   }
-  return res;
+  return res * A;
 }
 
 TVAR_HEADER comb_t comb_pow(comb_t A, comb_t B)
 {
+  if (B == 0) return 1;
   comb_t res = 1;
-  for (comb_t i = 1; i < B + 1; i++)
+  while (B > 1)
   {
-    res *= A;
+    if (B % 2 == 0)
+    {
+      A *= A;
+      B /= 2;
+    }
+    else 
+    {
+      res *= A;
+      B--;
+    }
   }
-  return res;
+  return res * A;
 }
 
 TVAR_HEADER prob_t psqrt (prob_t N)
 {
-  prob_t lo = 0, hi = N, mid;
-  for (comb_t i = 0; i < 1000; i++)
+  if (N < 0) return -1;
+  if (N == 0 || N == 1) return N;
+
+  prob_t x = N;
+  prob_t y = (N + 1) / 2;
+
+  while (x - y > 1e-6)
   {
-    mid = (lo + hi) / 2;
-    if (mid * mid == N) return mid;
-    if (mid * mid > N) hi = mid;
-    else lo = mid; 
+    x = y;
+    y = (x + x / N) / 2;
   }
-  return mid;
+  return y;
 }
 
 CXX_END
